@@ -1,4 +1,4 @@
-# Text to skills and keywords to jobs/schools
+# Text to skills and keywords to jobs/courses
 
 Project was created for a 1-day hackathon that was organized online.
 Project is created using HeadAI's Semantic AI to fetch data with API query calls. Hackathon was
@@ -19,3 +19,29 @@ How app works in a nutshell.
 <p align = "center">
 <img src="readme_images/hackathon_diagram.png" alt="hackathon_diagram" width="600">
 </p>
+
+### Testing
+Tests are created for:
+<br>
+<b>Backend</b>
+<ul>
+  <li>Tests are created with use of jest's helper library called supertest.</li>
+</ul>
+
+### Further features, changes and fixes
+#### Features
+<ul>
+  <li>Statistics tab</li>
+</ul>
+#### Changes
+<ul>
+  <li>Better course display information</li>
+</ul>
+#### Fixes
+<ul>
+  <li>Notification display time bug</li>
+  <li>Correct notification information</li>
+</ul>
+Instead of using Dialogflow and Firebase database I had decided to use MongoDB, React and Heroku to publish the app. 
+NodeJS uses a RESTful API endpoint to receive a request body. Request body is forwarded to HeadAI's API. 
+Response is validated and notification message is displayed to the user in front-end. Axios library is used to post a request.
