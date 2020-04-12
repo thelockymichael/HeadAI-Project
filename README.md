@@ -9,40 +9,74 @@ The events proved that the result is just as good as in real life, if the partic
 
 <a href="https://headai-text-to-skills-85t5322.herokuapp.com/">Link to app on heroku</a>
 
-### Description
+## Description
 Instead of using Dialogflow and Firebase database I had decided to use MongoDB, React and Heroku to publish the app. 
 NodeJS uses a RESTful API endpoint to receive a request body. Request body is forwarded to HeadAI's API. 
 Response is validated and notification message is displayed to the user in front-end. Axios library is used to post a request.
 
-#### Diagram
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+To get started you need a computer, internet connection (for API) and your favourite code editor. I used VS Code, but you can use Webstorm or whichever you're comfortable with.
+
+### Usage
+Clone or download this repo to your local machine.
+<details><summary>Show instructions</summary>
+
+1. Open project in code editor.
+
+2. Install node_module packages:
+```sh 
+$ npm install
+```
+
+3. Start backend server from terminal:
+```sh 
+$ npm run dev
+```
+4. Launch a second terminal and navigate to client directory and run:
+```sh 
+$ npm start
+```
+
+</details>
+
+## Running the tests
+You can run all tests:
+```sh 
+$ npm run test 
+```
+or run individual test:
+```sh 
+$ npm test -- tests/text_to_skills_api.test.js
+```
+
+### Diagram
 How the app works in a nutshell.
+Diagram includes Dialogflow's fullfilments that are not yet implemented as endpoints.
 <p align = "center">
 <img src="readme_images/hackathon_diagram.png" alt="hackathon_diagram" width="600">
 </p>
 
-### Testing
-Tests are created for:
-<br>
-<b>Backend</b>
+## Further features, changes and fixes
+### Features
 <ul>
-  <li>Tests are created with use of jest's helper library called supertest.</li>
-</ul>
-
-### Further features, changes and fixes
-#### Features
-<ul>
+  <li>Dialogflow integration</li>
   <li>Statistics tab</li>
 </ul>
 
-#### Changes
+### Changes
 
 <ul>
   <li>Better course display information</li>
+  <li>Use redux instead of hook states</li>
 </ul>
 
-#### Fixes
+### Fixes
 
 <ul>
+  <li>7 failed backend tests</li>
   <li>Notification display time bug</li>
   <li>Correct notification information</li>
 </ul>
