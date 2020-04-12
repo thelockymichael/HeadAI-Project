@@ -7,7 +7,7 @@ and see how well their skills match the labor market. All three universities of 
 The events proved that the result is just as good as in real life, if the participants are motivated.
 (03.04.2020, quoted from this <a href="https://www.3amk.fi/en/2020/04/03/first-virtual-hackathon-succeeded-beyond-expectations/">article</a>). 
 
-<a href="https://dashboard.heroku.com/apps/headai-text-to-skills-85t5322">Link to app on heroku</a>
+<a href="https://headai-text-to-skills-85t5322.herokuapp.com/">Link to app on heroku</a>
 
 ### Description
 Instead of using Dialogflow and Firebase database I had decided to use MongoDB, React and Heroku to publish the app. 
