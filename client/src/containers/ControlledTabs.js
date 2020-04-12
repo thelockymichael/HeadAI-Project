@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { Tabs, Tab } from "react-bootstrap";
-import { useKey } from "../hooks/index";
-import ControlledTabsComponent from "../components/ControlledTabsComponent";
+import React from 'react'
+import { useKey } from '../hooks/index'
+import ControlledTabsComponent from '../components/ControlledTabsComponent'
 
 const ControlledTabs = () => {
-  const keyInput = useKey("home");
+  const keyInput = useKey('skills')
 
-  return <ControlledTabsComponent keyInput={keyInput} />;
-};
+  return <ControlledTabsComponent keyInput={keyInput} />
+}
 
-export default ControlledTabs;
+export default ControlledTabs

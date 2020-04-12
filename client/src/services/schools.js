@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/jobs-by-keywords/from-react'
+const baseUrl = '/api/courses-by-keywords/from-react'
 
 const getAll = () => {
   const request = axios.get(baseUrl)
@@ -7,8 +7,8 @@ const getAll = () => {
 }
 
 const create = async newObject => {
-  console.log('newObject', newObject)
   const request = await axios.post(baseUrl, newObject)
+
   return request.data
 }
 

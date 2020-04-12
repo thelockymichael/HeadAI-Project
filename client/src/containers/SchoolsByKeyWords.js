@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import jobService from '../services/jobs'
-import JobsByKeyWordsComponent from '../components/JobsByKeyWordsComponent'
+import schoolservice from '../services/schools'
+import SchoolsByKeyWordsComponent from '../components/SchoolsByKeyWordsComponent'
 import { useField } from '../hooks/index'
 
-const JobsByKeyWords = () => {
-  const words = useField('text')
-  const area = useField('text')
-  const time_range_start = useField('text')
-  const [jobs, setJobs] = useState([])
+const SchoolsByKeyWords = () => {
+  const skill = useField('text')
+  const lang = useField('text')
+  const limit = useField('number')
+  const [schools, setSchools] = useState([])
   const [loading, setLoading] = useState(false)
 
   const [message, setMessage] = useState({
@@ -20,34 +20,35 @@ const JobsByKeyWords = () => {
 
     setLoading(true)
 
-    jobService
+    console.log('newobject', {
+      skill,
+      lang,
+      limit,
+    })
+    schoolservice
       .create({
-        words: words.value,
-        area: area.value,
-        time_range_start: time_range_start.value,
+        skill: skill.value,
+        lang: lang.value,
+        limit: limit.value,
       })
       .then((response) => {
-        if (!response.length) {
-          return null
-        }
+        setLoading(false)
+        console.log('RESE', response)
         setMessage({
           type: 'success',
-          message: `Found job positions with the following skills ${response.skills_that_match}`,
+          message: `Found schools with following skills: ${skill}`,
         })
         setTimeout(() => {
           setMessage('')
         }, 5000)
-        setLoading(false)
-        console.log('setJobs', response)
-        setJobs(response)
+        console.log('setschools', response)
+        setSchools(response)
         console.log('message', message)
         console.log(response)
       })
       .catch((error) => {
         setLoading(false)
         console.log(error.response.data.error)
-        console.log('toinen', error.response)
-
         setMessage({
           type: 'danger',
           message: `${error.response.data.error}`,
@@ -59,16 +60,16 @@ const JobsByKeyWords = () => {
   }
 
   return (
-    <JobsByKeyWordsComponent
-      words={words}
-      area={area}
-      time_range_start={time_range_start}
+    <SchoolsByKeyWordsComponent
+      skill={skill}
+      lang={lang}
+      limit={limit}
       message={message}
       submitHandler={submitHandler}
-      jobs={jobs}
+      schools={schools}
       loading={loading}
     />
   )
 }
 
-export default JobsByKeyWords
+export default SchoolsByKeyWords

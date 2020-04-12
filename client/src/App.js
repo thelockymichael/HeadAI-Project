@@ -1,13 +1,13 @@
-import React from "react";
-import ControlledTabs from "./containers/ControlledTabs";
+import React from 'react'
+import ControlledTabs from './containers/ControlledTabs'
 
 const App = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <br />
       <ControlledTabs />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

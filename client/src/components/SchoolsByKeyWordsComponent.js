@@ -7,34 +7,34 @@ import {
 } from 'react-bootstrap'
 import Notification from './Notification'
 
-const JobsByKeyWordsComponent = (props) => {
-  console.log('JobsByKeyWords Components Jobs', props.jobs)
+const SchoolsByKeyWordsComponent = (props) => {
+  console.log('schoolsByKeyWords Components schools', props.schools)
   return (
     <>
       {props.message && <Notification message={props.message} />}
-      <h1>Search jobs with keywords</h1>
+      <h1>Search schools with keywords</h1>
       <Form onSubmit={props.submitHandler}>
         <Form.Group>
-          <Form.Label>Skill words:</Form.Label>
+          <Form.Label>Skills:</Form.Label>
           <Form.Control
             required
             name="words"
-            placeholder="e.g. software, company, java, director"
-            {...props.words}
+            placeholder="e.g. ohjelmointi"
+            {...props.skill}
           />
-          <Form.Label>Area:</Form.Label>
+          <Form.Label>Language:</Form.Label>
           <Form.Control
             required
             name="area"
-            placeholder="e.g. Helsinki"
-            {...props.area}
+            placeholder="e.g. fi"
+            {...props.lang}
           />
-          <Form.Label>Time range start:</Form.Label>
+          <Form.Label>Course limit:</Form.Label>
           <Form.Control
             required
             name="area"
-            placeholder="e.g. 2018-11"
-            {...props.time_range_start}
+            placeholder="e.g. 10"
+            {...props.limit}
           />
           <br />
           <Button variant="primary" type="submit">
@@ -42,7 +42,6 @@ const JobsByKeyWordsComponent = (props) => {
           </Button>
         </Form.Group>
       </Form>
-
       <br />
       {props.loading ? (
         <div className="d-flex justify-content-center">
@@ -50,9 +49,9 @@ const JobsByKeyWordsComponent = (props) => {
         </div>
       ) : (
         <>
-          {props.jobs ? (
+          {props.schools ? (
             <ListGroup>
-              {props.jobs.map((job) => {
+              {props.schools.map((school) => {
                 return (
                   <>
                     <ListGroup.Item
@@ -60,22 +59,22 @@ const JobsByKeyWordsComponent = (props) => {
                       style={{ cursor: 'pointer' }}
                       action
                       hover
-                      href={job.url}
+                      href={school.url}
                     >
-                      <span style={{ fontSize: '24px' }}>{job.id}</span>
+                      <span style={{ fontSize: '24px' }}>{school.author}</span>
                       <span>
-                        {job.skills_that_match
-                          ? `(skills that match: ${job.skills_that_match})`
+                        {school.skills_that_match
+                          ? ` (${school.title}) `
                           : null}
                       </span>
-                      <p>{job.time}</p>
+                      <p>{school.description}</p>
                     </ListGroup.Item>
                   </>
                 )
               })}
             </ListGroup>
           ) : (
-            <h4>Job opportunities are displayed here</h4>
+            <h4>School opportunities are displayed here</h4>
           )}
         </>
       )}
@@ -83,4 +82,4 @@ const JobsByKeyWordsComponent = (props) => {
   )
 }
 
-export default JobsByKeyWordsComponent
+export default SchoolsByKeyWordsComponent

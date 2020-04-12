@@ -1,8 +1,15 @@
-import React from "react";
-import { Table, Form, InputGroup, Button, FormControl } from "react-bootstrap";
-import Notification from "../components/Notification";
+import React from 'react'
+import {
+  Spinner,
+  Table,
+  Form,
+  InputGroup,
+  Button,
+  FormControl,
+} from 'react-bootstrap'
+import Notification from '../components/Notification'
 
-const TextToSkillComponent = props => {
+const TextToSkillComponent = (props) => {
   return (
     <>
       {props.message && <Notification message={props.message} />}
@@ -27,40 +34,48 @@ const TextToSkillComponent = props => {
       <br />
       <FormControl
         disabled={props.skills ? false : true}
-        style={{ resize: "none" }}
-        value={props.skills ? props.skills.map(skill => ` ${skill}`) : null}
+        style={{ resize: 'none' }}
+        value={props.skills ? props.skills.map((skill) => ` ${skill}`) : null}
         required
         placeholder="Skill word(s) will appear here."
         as="textarea"
         aria-label="Search for skills"
       />
       <br />
-      {!props.skills ? (
-        <h4>Skills are displayed here</h4>
+      {props.loading ? (
+        <div className="d-flex justify-content-center">
+          <Spinner center animation="border" />
+        </div>
       ) : (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Skills</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.skills.map((skill, index) => {
-              return (
-                <>
-                  <tr>
-                    <td>{index}</td>
-                    <td>{skill}</td>
-                  </tr>
-                </>
-              );
-            })}
-          </tbody>
-        </Table>
+        <>
+          {props.skills ? (
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                {props.skills.map((skill, index) => {
+                  return (
+                    <>
+                      <tr>
+                        <td>{index}</td>
+                        <td>{skill}</td>
+                      </tr>
+                    </>
+                  )
+                })}
+              </tbody>
+            </Table>
+          ) : (
+            <h1>Your skills are displayed here</h1>
+          )}
+        </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default TextToSkillComponent;
+export default TextToSkillComponent
