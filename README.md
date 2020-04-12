@@ -13,3 +13,6 @@ The events proved that the result is just as good as in real life, if the partic
 Instead of using Dialogflow and Firebase database I had decided to use MongoDB, React and Heroku to publish the app. 
 NodeJS uses a RESTful API endpoint to receive a request body. Request body is forwarded to HeadAI's API. 
 Response is validated and notification message is displayed to the user in front-end. Axios library is used to post a request.
+
+#### Diagram
+<img src="readme_images/hackathon_diagram.png" alt="hackathon_diagram" width="300">
