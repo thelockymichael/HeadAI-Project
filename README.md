@@ -15,7 +15,7 @@ NodeJS uses a RESTful API endpoint to receive a request body. Request body is fo
 Response is validated and notification message is displayed to the user in front-end. Axios library is used to post a request.
 
 #### Diagram
-How app works in a nutshell.
+How the app works in a nutshell.
 <p align = "center">
 <img src="readme_images/hackathon_diagram.png" alt="hackathon_diagram" width="600">
 </p>
@@ -33,15 +33,16 @@ Tests are created for:
 <ul>
   <li>Statistics tab</li>
 </ul>
+
 #### Changes
+
 <ul>
   <li>Better course display information</li>
 </ul>
+
 #### Fixes
+
 <ul>
   <li>Notification display time bug</li>
   <li>Correct notification information</li>
 </ul>
-Instead of using Dialogflow and Firebase database I had decided to use MongoDB, React and Heroku to publish the app. 
-NodeJS uses a RESTful API endpoint to receive a request body. Request body is forwarded to HeadAI's API. 
-Response is validated and notification message is displayed to the user in front-end. Axios library is used to post a request.
