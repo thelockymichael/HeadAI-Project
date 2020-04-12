@@ -80,3 +80,6 @@ Diagram includes Dialogflow's fullfilments that are not yet implemented as endpo
   <li>Notification display time bug</li>
   <li>Correct notification information</li>
 </ul>
+
+## Acknowledgements
+Thanks to people at HeadAI for giving an opportunity to use and experiment with this API.
